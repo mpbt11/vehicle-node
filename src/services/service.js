@@ -112,7 +112,7 @@ exports.selectVehicle = async () => {
     };
   } finally {
     await connection.end();
-
+  
     return response;
   }
 };
