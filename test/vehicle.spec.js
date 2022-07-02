@@ -91,7 +91,7 @@ describe("TestVehicles", () => {
   });
 
   describe("delete", () => {
-    it("deveria conter um objeto um número e uma string", () => {
+    it("deveria conter um objeto contendo um número e uma string", () => {
       return deleteVehicle(exempleReq).then((dados) => {
         expect(dados.json).to.be.a("object");
         expect(dados.json.status).to.be.a("number");
