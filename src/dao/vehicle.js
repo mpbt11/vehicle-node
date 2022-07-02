@@ -10,7 +10,7 @@ class VehiclesDao {
       dados.renavam,
       dados.modelo,
       dados.marca,
-      dados.ano
+      dados.ano,
     ];
 
     let query = `
@@ -26,7 +26,6 @@ class VehiclesDao {
               ($1, $2, $3, $4, $5, $6)
             RETURNING *
            `;
-
     return this._con.query(query, values);
   }
 
@@ -49,7 +48,7 @@ class VehiclesDao {
       dados.renavam,
       dados.modelo,
       dados.marca,
-      dados.ano
+      dados.ano,
     ];
 
     let query = `

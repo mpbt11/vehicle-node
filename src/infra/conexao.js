@@ -10,8 +10,8 @@ const config = {
 };
 
 const createDbConnection = () => {
-  const conexao = new Client(config);
-  return conexao;
+  return new Client(config);
+
 };
 
 module.exports = { createDbConnection };

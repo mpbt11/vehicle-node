@@ -9,7 +9,7 @@ exports.addVehicle = async (dados) => {
   try {
     await connection.connect();
 
-    const vehicle = (await vehiclesDao.insert(dados)).rows;
+    const [vehicle] = (await vehiclesDao.insert(dados)).rows;
 
     response = {
       json: {
@@ -27,7 +27,8 @@ exports.addVehicle = async (dados) => {
   }
 };
 
-exports.updateVehicle = async (dados, res) => {
+exports.updateVehicle = async (dados) => {
+
   let response;
   const connection = createDbConnection();
   const vehiclesDao = new VehiclesDao(connection);
@@ -69,7 +70,7 @@ exports.selectByIdVehicle = async (dados) => {
   try {
     await connection.connect();
 
-    const vehicle = (await vehiclesDao.getById(dados)).rows;
+    const [vehicle] = (await vehiclesDao.getById(dados)).rows;
 
     response = {
       json: {
@@ -125,15 +126,7 @@ exports.deleteVehicle = async (dados) => {
   try {
     await connection.connect();
 
-    const [vehicle] = (await vehiclesDao.delete(dados)).rows;
-
-    if (!vehicle)
-      return (response = {
-        json: {
-          status: 404,
-          mensagem: "Veículo não existe na base de dados!",
-        },
-      });
+    const vehicle = (await vehiclesDao.delete(dados)).rows;
 
     response = {
       json: {

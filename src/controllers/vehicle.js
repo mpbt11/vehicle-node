@@ -55,11 +55,13 @@ module.exports = (app) => {
 
   app.get("/", async (req, res) => {
     const response = await selectVehicle();
+
     return res.send(response);
   });
 
   app.delete("/:id_vehicles", validateDelete, async (req, res) => {
     const response = await deleteVehicle(createFormDelete(req));
+
     return res.send(response);
   });
 };
