@@ -1,7 +1,7 @@
 const chaiPromised = require("chai-as-promised");
 const chai = require("chai");
 const expect = chai.expect;
-
+chai.use(chaiPromised);
 const {
   addVehicle,
   updateVehicle,
@@ -10,10 +10,8 @@ const {
   deleteVehicle,
 } = require("../src/services/service");
 
-chai.use(chaiPromised);
-
 const exempleReq = {
-  id_vehicles: 26,
+  id_vehicles: 38,
   placa: "ABC-123",
   chassi: "12345678912345678",
   renavam: "12345678910",
