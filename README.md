@@ -12,16 +12,19 @@ Contém os métodos:
 #
 
 # Banco de Dados (PostgreSQL)
-- Schema: db_info;
-- Tabela: vehicles;
-- Atributos:
-id_vehicles,
-placa,
-chassi,
-renavam,
-modelo,
-marca,
-ano
+
+CREATE DATABASE db_info;
+
+CREATE TABLE db_info.vehicles (
+	id_vehicles serial NOT NULL,
+	placa varchar(7) NOT NULL,
+	chassi varchar(17) NOT NULL,
+	renavam varchar(11) NOT NULL,
+	modelo varchar(20) NOT NULL,
+	marca varchar(20) NOT NULL,
+	ano varchar(4) NOT NULL,
+	CONSTRAINT vehicles_pkey PRIMARY KEY (id_vehicles)
+);
 
 # Teste Unitário (Mocha)
 Foi realizado uma estrutura de teste utilizando Mocha para cada metódo do CRUD. 
@@ -29,17 +32,12 @@ Foi realizado uma estrutura de teste utilizando Mocha para cada metódo do CRUD.
 
 # Como rodar o Projeto
 
-- Criar o arquivo package
-  - npm init
-
 - Instalar todas as dependencias indicada pelo package.json
   - npm install
 
 - Rodar o projeto usando o nodemon
   - nodemon index.js
   
-- Instalar o PostgreSQL
-  - npm install postgres
 
 # Servidor
 O projeto roda na porta 3000.
